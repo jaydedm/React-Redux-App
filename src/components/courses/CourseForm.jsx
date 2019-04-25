@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import TextInput from "../common/TextInput";
-import SelectInput from "../common/SelectInput";
+import React from 'react'
+import PropTypes from 'prop-types'
+import TextInput from '../common/TextInput.jsx'
+import SelectInput from '../common/SelectInput.jsx'
 
 const CourseForm = ({
   course,
@@ -13,7 +13,7 @@ const CourseForm = ({
 }) => {
   return (
     <form onSubmit={onSave}>
-      <h2>{course.id ? "Edit" : "Add"} Course</h2>
+      <h2>{course.id ? 'Edit' : 'Add'} Course</h2>
       {errors.onSave && (
         <div className="alert alert-danger" role="alert">
           {errors.onSave}
@@ -30,7 +30,7 @@ const CourseForm = ({
       <SelectInput
         name="authorId"
         label="Author"
-        value={course.authorId || ""}
+        value={course.authorId || ''}
         defaultOption="Select Author"
         options={authors.map(author => ({
           value: author.id,
@@ -49,11 +49,11 @@ const CourseForm = ({
       />
 
       <button type="submit" disabled={saving} className="btn btn-primary">
-        {saving ? "Saving..." : "Save"}
+        {saving ? 'Saving...' : 'Save'}
       </button>
     </form>
-  );
-};
+  )
+}
 
 CourseForm.propTypes = {
   authors: PropTypes.array.isRequired,
@@ -62,6 +62,6 @@ CourseForm.propTypes = {
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   saving: PropTypes.bool
-};
+}
 
-export default CourseForm;
+export default CourseForm
